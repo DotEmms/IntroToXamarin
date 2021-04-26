@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="IntroToXamarin.Orders">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Label">
+                <Setter Property="Margin" Value="0"/>
+                <Setter Property="FontFamily" Value="Merriweather"/>
+            </Style>
+            <Style TargetType="Label" x:Key="ProductLabel">
+                <Setter Property="TextColor" Value="{AppThemeBinding Light=Black, Dark=White}"/>
+                <Setter Property="FontSize" Value="Large"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="Margin" Value="5"/>
+            </Style>
+            <Style TargetType="Label" x:Key="SelectLabel">
+                <Setter Property="TextColor" Value="#068c11"/>
+                <Setter Property="FontSize" Value="Small"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="Margin" Value="5"/>
+            </Style>
+            <Style TargetType="Label" x:Key="SelectLabel2" BasedOn="{StaticResource SelectLabel}">
+                <Setter Property="FontAttributes" Value="Italic"/>
+            </Style>
+            <Style TargetType="Label" x:Key="RatingLabel">
+                <Setter Property="TextColor" Value="Yellow"/>
+                <Setter Property="Margin" Value="0"/>
+                
+            </Style>
+            <Style TargetType="Frame" x:Key="SelectFrame">
+                <Setter Property="BorderColor" Value="#068c11"/>
+                <Setter Property="CornerRadius" Value="10"/>
+                <Setter Property="Padding" Value="0"/>
+            </Style>
+            <Style TargetType="Label" x:Key="SellerLabel">
+                <Setter Property="TextColor" Value="{AppThemeBinding Light=Black, Dark=White}"/>
+                <Setter Property="FontSize" Value="Medium"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="Margin" Value="5"/>
+            </Style>
+            <Style TargetType="Button">
+                <Setter Property="BackgroundColor" Value="{OnPlatform iOS=#449e65, Android=#f5e642, UWP=#ca86db }"/>
+                <Setter Property="TextColor" Value="#000"/>
+            </Style>
+            <Style TargetType="StackLayout" x:Key="CheckedStack">
+                <Setter Property="Margin" Value="0"/>
+            </Style>
+            
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
+    <ContentPage.Content>
+        <ScrollView VerticalOptions="Center">
+        <StackLayout VerticalOptions="Center" Margin="20">
+            <Image Source="https://www.techinn.com/f/13745/137454997/google-chromecast-3.jpg" Aspect="Fill" HeightRequest="{OnPlatform UWP=500, Android=250}" WidthRequest="{OnPlatform UWP=500, Android=250}" HorizontalOptions="Center"/>
+                <Label x:Name="lblPrice" LineBreakMode="WordWrap">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <FormattedString.Spans>
+                                <Span Text="€39," FontSize="Large" TextColor="red" FontAttributes="Bold"/>
+                                <Span Text="99" FontSize="Small" TextColor="red" FontAttributes="Bold"/>
+                            </FormattedString.Spans>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label> 
+            
+            <Label x:Name="lblBrand" Text="Google >"/>
+            <Label x:Name="lblTitleProduct" Text="Google Chomecast 3 Smart - TV-dongle - Full HD / zwart" Style="{StaticResource ProductLabel}"/>
+            
+            <StackLayout Orientation="Horizontal" VerticalOptions="End">
+                <Label x:Name="lblRating" Text="⭐⭐⭐⭐⭐" Style="{StaticResource RatingLabel}"/>
+                <Label Text="Gemiddelde uit 4.489 beoordelingen"/>
+            </StackLayout>
+            
+            <StackLayout Orientation="Horizontal">
+                <Frame Style="{StaticResource SelectFrame}">
+                    <Label x:Name="lblStorageNotempty" Text="Op voorraad" Style="{StaticResource SelectLabel2}"/>
+                </Frame>
+                
+                <Label x:Name="lblSelect" Text="Select" Style="{StaticResource SelectLabel}"/>
+            </StackLayout>
+            
+            <Label x:Name="lblStorage" Text="voor 23:59 besteld, morgen in huis!" Style="{StaticResource SelectLabel}"/>
+            <Label x:Name="lblSeller" Text="Verkoop door bol.com" Style="{StaticResource SellerLabel}"/>
+            <Button x:Name="btnOrder" Text="Add to cart" Clicked="OnOrderButtonClicked" />
+            
+            <StackLayout Orientation="Horizontal" Style="{StaticResource CheckedStack}">
+                <Label Text="✓" Style="{StaticResource SelectLabel}"/>
+                <Label Text=" Gratis verzending door bol.com"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" Style="{StaticResource CheckedStack}">
+                <Label Text="✓" Style="{StaticResource SelectLabel}"/>
+                <Label Text=" Ophalen bij een bol.com afhaalpunt mogelijk"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" Style="{StaticResource CheckedStack}">
+                <Label Text="✓" Style="{StaticResource SelectLabel}"/>
+                <Label Text=" 30 dagen bedenktijd en gratis retourneren"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" Style="{StaticResource CheckedStack}">
+                <Label Text="✓" Style="{StaticResource SelectLabel}"/>
+                <Label Text=" Dag en nacht klantenservice"/>
+            </StackLayout>
+
+
+        </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+    
+</ContentPage>
